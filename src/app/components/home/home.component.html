@@ -1,0 +1,60 @@
+
+<div class="row bg-primary">
+    <div class="col-12">
+        <div>
+            <nav class="nav nav-pills nav-fill">
+                <a class="nav-link text-white" (click)="StartRecord()" *ngIf="isRecorded">
+                    <i class="fas" [ngClass]="isStopRecord ? ['fa-stop']:['fa-record-vinyl red'] "></i>
+                    {{textStopRecord}}
+                </a>
+                <a class="nav-link" (click)="enableOrDisableAudio()">
+                    on/off mic
+                    <i class="fas" [ngClass]="enableAudio ? ['fa-microphone']:['fa-microphone-slash'] "></i>
+                    <!-- fa-microphone -->
+                </a>
+                <a class="nav-link" (click)="enableOrDisableVideo()">
+                    <i class="fas" [ngClass]="enableVideo ? ['fa-video']:['fa-video-slash'] "></i>
+                    <!-- fa-video-slash -->
+                </a>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="row mt-1">
+    <div class="col-md-4">
+        <div style="height: 100%;">
+            <tabset>
+                <tab heading="Participants" (selectTab)="onSelect($event)">
+                    <ng-template tabHeading>
+                        <span class="badge badge-secondary bg-secondary" *ngIf="videos.length > maxUserDisplay">{{videos.length}}</span>
+                    </ng-template>
+                    <!-- local video of current user -->
+                    <!-- [ngClass]="role ? 'hide' : 'display'" -->
+                    <div class="row  mt-1 justify-content-center" >
+                        <h1 class="offset-8">Proctor</h1>
+                        <div class="col-6">
+                            <div class="card text-white bg-dark mb-3" style="width: 100%;">
+                                <div class="card-body" style="padding: 0;">
+                                    <video #videoPlayer width="100%" height="40%" controls></video>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </tab>
+                
+            </tabset>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="" >
+            <div class="mt-5" *ngFor="let user of tempvideos">
+                <h1>Examinee</h1>
+                <app-video-box-user [userVideo]="user" ></app-video-box-user>
+            </div>                        
+        </div>
+    </div>
+    
+</div>
+    <!-- <a target="_blank" (click)="navigateToVideoBox()">section</a> -->
+    

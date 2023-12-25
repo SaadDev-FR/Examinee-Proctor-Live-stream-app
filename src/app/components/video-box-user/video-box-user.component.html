@@ -1,0 +1,27 @@
+
+<div class="card text-white bg-dark mb-3" >
+
+    
+    <div class="card-body" style="padding: 0;">
+        <video  width="100%" height="150px" [srcObject]="userVideo.srcObject" (loadedmetadata)="onLoadedMetadata($event)"
+            [muted]="userVideo.muted">
+        </video>
+    </div>
+    <!-- <div style="padding: 0;">
+        <span class="text-truncate span-inline-block"> {{data.user.displayName}} </span>
+        <span style="float: right; color: white;">
+            <i class="fas" [ngClass]="enableCamera ? ['fa-video']:['fa-video-slash']"></i>
+            <i class="fas" [ngClass]="enableMicro ? ['fa-microphone']:['fa-microphone-slash']"></i>
+        </span>
+    </div> -->
+
+     <!-- <div class="col-md-6">
+        <div class="" >
+            <div class="mt-5" *ngFor="let user of examineeVideo">
+                <h1>Examinee</h1>
+                <video #videoPlayer width="100%" height="40%" controls></video>
+                <app-video-box-user [userVideo]="user" #remoteVideo  width="100%" height="40%" ></app-video-box-user>
+            </div>                        
+        </div>
+    </div>
+</div> -->
